@@ -1,0 +1,4 @@
+# Soft dependencies extracted from modules themselves.
+softdep mt6985_dcm pre:mtk_dcm.ko
+softdep slbc_mt6985 pre: tinysys-scmi.ko
+softdep mifs pre: crc32
