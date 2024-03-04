@@ -1,11 +1,11 @@
-# 1 "vendor/mediatek/proprietary/hardware/fstab/mt6985/fstab.in.emmc"
+# 1 "vendor/mediatek/proprietary/hardware/fstab/mt6985/fstab.in.mt6985"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 356 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "vendor/mediatek/proprietary/hardware/fstab/mt6985/fstab.in.emmc" 2
-# 125 "vendor/mediatek/proprietary/hardware/fstab/mt6985/fstab.in.emmc"
+# 1 "vendor/mediatek/proprietary/hardware/fstab/mt6985/fstab.in.mt6985" 2
+# 136 "vendor/mediatek/proprietary/hardware/fstab/mt6985/fstab.in.mt6985"
 system /system erofs ro wait,slotselect,logical,first_stage_mount
 system /system ext4 ro wait,slotselect,logical,first_stage_mount
 
@@ -53,12 +53,18 @@ system_dlkm /system_dlkm erofs ro wait,slotselect,logical,first_stage_mount
 system_dlkm /system_dlkm ext4 ro wait,slotselect,logical,first_stage_mount
 
 
+system_ext /system_ext erofs ro wait,slotselect,logical,first_stage_mount
+system_ext /system_ext ext4 ro wait,slotselect,logical,first_stage_mount
+
+
 /dev/block/by-name/metadata /metadata f2fs noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
 
-/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,FLAG_FDE_TYPE=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption,fsverity
-/dev/block/by-name/userdata /data mifs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,FLAG_FDE_TYPE=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption,fsverity
+/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,gc_merge,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,sysfs_path=/sys/devices/platform/soc/112b0000.ufshci
+/dev/block/by-name/userdata /data mifs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,gc_merge,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,sysfs_path=/sys/devices/platform/soc/112b0000.ufshci
 
 
+
+/dev/block/by-name/rescue /cache ext4 noatime,nosuid,nodev,noauto_da_alloc,discard wait,check,formattable
 
 /dev/block/by-name/protect1 /mnt/vendor/protect_f ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
 /dev/block/by-name/protect2 /mnt/vendor/protect_s ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
@@ -82,10 +88,11 @@ system_dlkm /system_dlkm ext4 ro wait,slotselect,logical,first_stage_mount
 
 /dev/block/by-name/nvram /nvram emmc defaults defaults
 /dev/block/by-name/proinfo /proinfo emmc defaults defaults
-/dev/block/by-name/lk /bootloader emmc defaults defaults
-/dev/block/by-name/lk2 /bootloader2 emmc defaults defaults
+/dev/block/by-name/lk1 /lk1 emmc defaults defaults
+/dev/block/by-name/bootloader2 /bootloader2 emmc defaults defaults
 /dev/block/by-name/para /para emmc defaults defaults
 /dev/block/by-name/misc /misc emmc defaults defaults
+/dev/block/by-name/init_boot /init_boot emmc defaults defaults
 
 
 
@@ -111,15 +118,15 @@ system_dlkm /system_dlkm ext4 ro wait,slotselect,logical,first_stage_mount
 /dev/block/by-name/scp2 /scp2 emmc defaults defaults
 
 
-/dev/block/by-name/sspm_1 /sspm_1 emmc defaults defaults
-/dev/block/by-name/sspm_2 /sspm_2 emmc defaults defaults
+/dev/block/by-name/sspm1 /sspm1 emmc defaults defaults
+/dev/block/by-name/sspm2 /sspm2 emmc defaults defaults
 
 
-/dev/block/by-name/dpm_1 /dpm_1 emmc defaults defaults
-/dev/block/by-name/dpm_2 /dpm_2 emmc defaults defaults
+/dev/block/by-name/dpm1 /dpm1 emmc defaults defaults
+/dev/block/by-name/dpm2 /dpm2 emmc defaults defaults
 
-/dev/block/by-name/mcupm_1 /mcupm_1 emmc defaults defaults
-/dev/block/by-name/mcupm_2 /mcupm_2 emmc defaults defaults
+/dev/block/by-name/mcupm1 /mcupm1 emmc defaults defaults
+/dev/block/by-name/mcupm2 /mcupm2 emmc defaults defaults
 
 
 
@@ -134,6 +141,15 @@ system_dlkm /system_dlkm ext4 ro wait,slotselect,logical,first_stage_mount
 
 /dev/block/by-name/gz1 /gz1 emmc defaults defaults
 /dev/block/by-name/gz2 /gz2 emmc defaults defaults
+/dev/block/by-name/ccu /ccu emmc defaults defaults
+/dev/block/by-name/vcp /vcp emmc defaults defaults
+/dev/block/by-name/gpueb /gpueb emmc defaults defaults
+/dev/block/by-name/mcf_ota /mcf_ota emmc defaults defaults
+/dev/block/by-name/vendor_boot /vendor_boot emmc defaults defaults
+/dev/block/by-name/mvpu_algo1 /mvpu_algo1 emmc defaults defaults
+/dev/block/by-name/mvpu_algo2 /mvpu_algo2 emmc defaults defaults
+/dev/block/by-name/apusys1 /apusys1 emmc defaults defaults
+/dev/block/by-name/apusys2 /apusys2 emmc defaults defaults
 
 /dev/block/by-name/spmfw /spmfw emmc defaults defaults
 
@@ -147,6 +163,8 @@ system_dlkm /system_dlkm ext4 ro wait,slotselect,logical,first_stage_mount
 /dev/block/by-name/boot_para /boot_para emmc defaults defaults
 /dev/block/by-name/odmdtbo /odmdtbo emmc defaults defaults
 /dev/block/by-name/dtbo /dtbo emmc defaults defaults
+/dev/block/by-name/connsys_wifi /connsys_wifi emmc defaults defaults
+/dev/block/by-name/connsys_bt /connsys_bt emmc defaults defaults
 
 /dev/block/by-name/otp /otp emmc defaults defaults
 
