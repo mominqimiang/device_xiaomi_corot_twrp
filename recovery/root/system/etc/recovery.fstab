@@ -17,7 +17,7 @@ product /product erofs ro wait,slotselect,avb,logical,first_stage_mount
 product /product ext4 ro wait,slotselect,avb,logical,first_stage_mount
 mi_ext /mnt/vendor/mi_ext erofs ro wait,slotselect,avb=vbmeta,logical,first_stage_mount,nofail
 mi_ext /mnt/vendor/mi_ext ext4 ro wait,slotselect,avb=vbmeta,logical,first_stage_mount,nofail
-/mnt/vendor/mi_ext /mi_ext none ro,bind wait,nofail
+/mnt/vendor/mi_ext /mi_ext erofs ro,bind wait,nofail
 overlay /product/overlay overlay ro,lowerdir=/mnt/vendor/mi_ext/product/overlay/:/product/overlay check,nofail
 overlay /product/app overlay ro,lowerdir=/mnt/vendor/mi_ext/product/app/:/product/app check,nofail
 overlay /product/priv-app overlay ro,lowerdir=/mnt/vendor/mi_ext/product/priv-app/:/product/priv-app check,nofail
@@ -35,6 +35,11 @@ overlay /system/priv-app overlay ro,lowerdir=/mnt/vendor/mi_ext/system/priv-app/
 overlay /system/framework overlay ro,lowerdir=/product/pangu/system/framework/:/system/framework check,nofail
 overlay /system/etc/sysconfig overlay ro,lowerdir=/mnt/vendor/mi_ext/system/etc/sysconfig/:/system/etc/sysconfig check,nofail
 overlay /system/etc/permissions overlay ro,lowerdir=/mnt/vendor/mi_ext/system/etc/permissions/:/product/pangu/system/etc/permissions/:/system/etc/permissions check,nofail
+overlay /product/usr overlay ro,lowerdir=/mnt/vendor/mi_ext/product/usr:/product/usr check,nofail
+overlay /product/etc/precust_theme overlay ro,lowerdir=/mnt/vendor/mi_ext/product/etc/precust_theme:/product/etc/precust_theme check,nofail
+overlay /product/etc/preferred-apps overlay ro,lowerdir=/mnt/vendor/mi_ext/product/etc/preferred-apps:/product/etc/preferred-apps check,nofail
+overlay /product/etc/security overlay ro,lowerdir=/mnt/vendor/mi_ext/product/etc/security:/product/etc/security check,nofail
+overlay /system_ext/etc/permissions overlay ro,lowerdir=/mnt/vendor/mi_ext/system_ext/etc/permissions:/system_ext/etc/permissions check,nofail
 
 
 odm /odm erofs ro wait,slotselect,avb,logical,first_stage_mount
