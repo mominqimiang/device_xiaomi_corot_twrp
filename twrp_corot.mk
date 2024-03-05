@@ -7,7 +7,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Device specific configs
-$(call inherit-product, device/xiaomi/rubens/device.mk)
+$(call inherit-product, device/xiaomi/corot/device.mk)
 
 # Device identifier
 PRODUCT_DEVICE := corot
