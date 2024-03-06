@@ -24,8 +24,6 @@ Positioning | GPS, A-GPS, BeiDou, Glonass, Galileo, NavIC
 Works:
 - [X] Display
 - [X] Touch
-- [X] Usb
-- [X] Fastbootd
 
 ## Donate me
 ![mmqmem](https://img2.imgtp.com/2024/03/05/FdGtaESF.jpg)
