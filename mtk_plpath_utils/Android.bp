@@ -1,14 +1,12 @@
-cc_library_static {
-    name: "libinit_corot",
-    header_libs: [
-        "libbase_headers",
-    ],
-    cflags: [
-        "-Wall",
-    ],
-    static_libs: [
-        "libbase",
-    ],
-    srcs: ["init_corot.cpp"],
+cc_binary {
+    name: "mtk_plpath_utils",
+    srcs:  ["mtk_plpath_utils.cpp"],
     recovery_available: true,
+    static_libs: [
+        "libfs_mgr"
+    ],
+    shared_libs: [
+        "libbase",
+        "liblog",
+    ]
 }
