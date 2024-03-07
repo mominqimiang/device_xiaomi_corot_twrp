@@ -17,10 +17,19 @@ Storage | 256/512/1024 GB
 Battery | 5000 mAh, Li-Polymer
 
 ## Features
+Problems:
+- [X] mifs
+- [X] Vibrator
 
 Works:
+- [X] ADB
+- [X] Partially Decryption (Android 13)
 - [X] Display
-- [X] Touch
+- [X] Fasbootd
+- [X] Flashing
+- [X] MTP
+- [X] Sideload
+- [X] USB OTG
 
 ## Donate me
 ![mmqmem](https://img2.imgtp.com/2024/03/05/FdGtaESF.jpg)
