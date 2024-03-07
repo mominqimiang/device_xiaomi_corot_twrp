@@ -1,9 +1,6 @@
 # TWRP device tree for REDMI K60 ULTRA
-
-## Donate me
-![mmqmem](https://img2.imgtp.com/2024/03/05/FdGtaESF.jpg)
-
-
+![corot](https://i02.appmifile.com/329_operator_sg/14/08/2023/3fcfdc0e83081349795e70056be19e35.png)
+REDMI K60 ULTRA (codenamed _"corot"_)
 ## Device specifications
 
 Basic   | Spec Sheet
@@ -17,11 +14,9 @@ Storage | 256/512/1024 GB
 Battery | 5000 mAh, Li-Polymer
 
 ## Features
-
 Problems:
 - [X] mifs
 - [X] Vibrator
-
 Works:
 - [X] ADB
 - [X] Partially Decryption (Android 14)
@@ -31,6 +26,5 @@ Works:
 - [X] MTP
 - [X] Sideload
 - [X] USB OTG
-
-REDMI K60 ULTRA (codenamed _"corot"_)
-![corot](https://i02.appmifile.com/329_operator_sg/14/08/2023/3fcfdc0e83081349795e70056be19e35.png)
+## Donate me
+![mmqmem](https://img2.imgtp.com/2024/03/05/FdGtaESF.jpg)
