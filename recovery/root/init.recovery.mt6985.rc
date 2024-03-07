@@ -24,6 +24,9 @@ on late-fs
 on post-fs
     start boot-hal-1-2
 
+    # Support mifs
+    insmod /lib/modules/mifs.ko
+
     # Support A/B feature for EMMC and UFS boot region
     wait /dev/block/mmcblk0boot0 2
     symlink /dev/block/sda /dev/block/mmcblk0boot0
