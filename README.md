@@ -17,6 +17,7 @@ Battery | 5000 mAh, Li-Polymer
 Problems:
 - [X] mifs
 - [X] Vibrator
+
 Works:
 - [X] ADB
 - [X] Partially Decryption (Android 13)
