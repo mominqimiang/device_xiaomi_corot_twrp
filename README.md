@@ -8,16 +8,13 @@ REDMI K60 ULTRA (codenamed _"corot"_)
 
 Basic   | Spec Sheet
 -------:|:-------------------------
-SoC     | MediaTek Dimensity 9200+ MT6985
+SoC     | MediaTek Dimensity 9200+
 CPU     | 1x 3.35 GHz Cortex-X3, 3x 3.0 GHz Cortex-A715, 4x 2.0 GHz Cortex-A510
-GPU     | Immortalis-G715 MC11, 1164 MHz, 
-Memory  | 12/16/24 GB RAM , 4266 MHZ
+GPU     | Immortalis-G715 MC11
+Memory  | 12/16/24 GB
 Shipped Android Version | 13
 Storage | 256/512/1024 GB
 Battery | 5000 mAh, Li-Polymer
-Camera  | 9280 x 6920 pixels, 7680 x 4320 pixels, 24 fps
-SIM Card | Nano-SIM, Nano-SIM / microSD
-Positioning | GPS, A-GPS, BeiDou, Glonass, Galileo, NavIC    
 
 ## Features
 
