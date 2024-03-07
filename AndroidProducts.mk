@@ -1,5 +1,5 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/pbrp_corot.mk
+    $(LOCAL_DIR)/twrp_corot.mk
 
 COMMON_LUNCH_CHOICES := \
-    pbrp_corot-eng
+    twrp_corot-eng
