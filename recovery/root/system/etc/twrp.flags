@@ -4,8 +4,6 @@
 
 #<mnt_point>        <type>    <device>                            <device2>                         <mnt_flags and options>
 /metadata                ext4              /dev/block/by-name/metadata                          flags=display="Metadata [ metadata ]";backup=1
-/data                        f2fs                /dev/block/by-name/userdata                          flags=display="Userdata [ data ]";fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
-/data                        mifs                /dev/block/by-name/userdata                          flags=display="Userdata [ data ]";fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
 /cache                     ext4                /dev/block/by-name/rescue                             flags=display="Cache [ rescue ]";wipeingui;wipeduringfactoryreset
 
 # Additional
