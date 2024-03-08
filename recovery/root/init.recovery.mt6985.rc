@@ -103,12 +103,12 @@ service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-ser
     oneshot
     seclabel u:r:recovery:s0
 
-service mifs_support /system/bin/mifs_support.sh
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
+#service mifs_support /system/bin/mifs_support.sh
+#    user root
+#    group root
+#    disabled
+#    oneshot
+#    seclabel u:r:recovery:s0
     
 #service haptic_hal /system/bin/haptic_hal.sh
 #    user root
@@ -154,7 +154,7 @@ on property:crypto.ready=0
 
 on boot
     start health-hal-2-1
-    start mifs_support
+ #   start mifs_support
     start overrideprops
     setprop sys.usb.config adb
     
