@@ -20,10 +20,7 @@ Problems:
 
 Works:
 - [X] ADB
-- [X] Partially Decryption (Android 13)
 - [X] Display
+- [X] Touch 
 - [X] Fasbootd
-- [X] Flashing
-- [X] MTP
-- [X] Sideload
 - [X] USB OTG
