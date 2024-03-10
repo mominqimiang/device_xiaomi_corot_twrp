@@ -24,3 +24,6 @@ Works:
 - [X] Touch
 - [X] MTP
 - [X] USB OTG
+
+## Donate me
+![mmqmem](https://img2.imgtp.com/2024/03/05/FdGtaESF.jpg)
