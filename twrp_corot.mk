@@ -1,3 +1,19 @@
+#
+# Copyright (C) 2022 The TWRP Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 # Configure base.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
@@ -25,12 +41,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 # Device identifier
 PRODUCT_DEVICE := corot
 PRODUCT_NAME := twrp_corot
-PRODUCT_BRAND := Xiaomi
+PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := 23078RKD5C
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_RELEASE_NAME := Redmi K60Ultra
+PRODUCT_RELEASE_NAME := Redmi K60 Ultra
 
 # Hide Reflash TWRP & FUSE passthrough
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.twrp.vendor_boot=true \
     persist.sys.fuse.passthrough.enable=true
+

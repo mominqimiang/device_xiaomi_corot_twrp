@@ -1,5 +1,5 @@
-# TWRP device tree for REDMI K60 ULTRA
-REDMI K60 ULTRA (codenamed _"corot"_) 
+# TWRP device tree for Redmi K60 Ultra
+Redmi K60 Ultra (codenamed _"corot"_) 
 ![corot](https://i02.appmifile.com/329_operator_sg/14/08/2023/3fcfdc0e83081349795e70056be19e35.png)
 ## Device specifications
 

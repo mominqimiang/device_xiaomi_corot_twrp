@@ -1,7 +1,7 @@
 import /keymint.service.mitee.rc
 import /tee-supplicant.rc
 import /miteelog.rc
-#import /xiaomi.haptic.hal.rc
+import /xiaomi.haptic.hal.rc
 
 on init
     setprop sys.usb.configfs 1
@@ -23,7 +23,7 @@ on late-fs
 
 on post-fs
     start boot-hal-1-2
-
+    
     # Support A/B feature for EMMC and UFS boot region
     wait /dev/block/mmcblk0boot0 2
     symlink /dev/block/sda /dev/block/mmcblk0boot0
@@ -43,29 +43,34 @@ on post-fs
     symlink /dev/block/platform/bootdevice/by-name/preloader_a /dev/block/by-name/preloader_ufs_a
     symlink /dev/block/platform/bootdevice/by-name/preloader_b /dev/block/by-name/preloader_ufs_b
 
+    # to access F2FS sysfs on dm-<num> directly
+    mkdir /dev/sys/fs/by-name 0755 system system
+    symlink /sys/fs/mifs/${dev.mnt.dev.data} /dev/sys/fs/by-name/userdata
+    symlink /sys/fs/f2fs/${dev.mnt.dev.data} /dev/sys/fs/by-name/userdata
+
     symlink /dev/block/platform/bootdevice /dev/block/bootdevice
 
     exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
     start mtk.plpath.utils.link
 
-#on post-fs-data
-#    chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/f0_save
-#    chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/osc_save
-#    chown system system /sys/bus/i2c/drivers/aw8697_haptic/3-005a/osc_save
- #   chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/custom_wave
- #   chmod 0666  /sys/bus/i2c/drivers/aw8697_haptic/2-005a/custom_wave
- #   chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/custom_wave
-  #  chmod 0666  /sys/bus/i2c/drivers/aw8697_haptic/2-005a/custom_wave
-  #  chown system system /sys/bus/i2c/drivers/aw8697_haptic/3-005a/custom_wave
-  #  chmod 0666  /sys/bus/i2c/drivers/aw8697_haptic/3-005a/custom_wave
- #   chmod 0666 /sys/class/qcom-haptics/lra_calibration
-    #chown system system /sys/bus/i2c/drivers/aw8697_haptic/0-005a/custom_wave
-   # chmod 0666  /sys/bus/i2c/drivers/aw8697_haptic/0-005a/custom_wave
-   # chmod 0666 /sys/class/qcom-haptics/lra_impedance
-#    chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/f0_save
-   # chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/osc_save
-#    chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/custom_wave
-#    chmod 0666  /sys/bus/i2c/drivers/awinic_haptic/1-005a/custom_wave
+on post-fs-data
+    chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/f0_save
+    chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/osc_save
+    chown system system /sys/bus/i2c/drivers/aw8697_haptic/3-005a/osc_save
+    chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/custom_wave
+    chmod 0666  /sys/bus/i2c/drivers/aw8697_haptic/2-005a/custom_wave
+    chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/custom_wave
+    chmod 0666  /sys/bus/i2c/drivers/aw8697_haptic/2-005a/custom_wave
+    chown system system /sys/bus/i2c/drivers/aw8697_haptic/3-005a/custom_wave
+    chmod 0666  /sys/bus/i2c/drivers/aw8697_haptic/3-005a/custom_wave
+    chmod 0666 /sys/class/qcom-haptics/lra_calibration
+    chown system system /sys/bus/i2c/drivers/aw8697_haptic/0-005a/custom_wave
+    chmod 0666  /sys/bus/i2c/drivers/aw8697_haptic/0-005a/custom_wave
+    chmod 0666 /sys/class/qcom-haptics/lra_impedance
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/f0_save
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/osc_save
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/custom_wave
+    chmod 0666  /sys/bus/i2c/drivers/awinic_haptic/1-005a/custom_wave
 
 service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     class main
@@ -75,11 +80,11 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     oneshot
     seclabel u:r:recovery:s0
 
-#service vibratorfeature-hal-service /vendor/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
-#    class hal
-#    user system
-#    group system input
-#    seclabel u:r:recovery:s0
+service vibratorfeature-hal-service /vendor/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
+    class hal
+    user system
+    group system input
+    seclabel u:r:recovery:s0
 
 service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     interface android.hardware.gatekeeper@1.0::IGatekeeper default
@@ -88,13 +93,6 @@ service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-ser
     group root
     disabled
     seclabel u:r:recovery:s0
-
-#service set_permissive /system/bin/set_permissive.sh
-#    user root
-#    group root
-#    disabled
-#    oneshot 
-#    seclabel u:r:recovery:s0
     
  service overrideprops /system/bin/overrideprops.sh
     user root
@@ -102,20 +100,20 @@ service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-ser
     disabled
     oneshot
     seclabel u:r:recovery:s0
-
- service mifs_support /system/bin/mifs_support.sh
+    
+ service mifs_hal /system/bin/mifs_hal.sh
     user root
     group root
     disabled
     oneshot
     seclabel u:r:recovery:s0
     
-#service haptic_hal /system/bin/haptic_hal.sh
-#    user root
-   # group root
- #   disabled
-  #  oneshot
- #   seclabel u:r:recovery:s0
+service haptic_hal /system/bin/haptic_hal.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
  
 on property:crypto.ready=1
     start vendor.keymint-mitee
@@ -149,12 +147,11 @@ on property:crypto.ready=0
     stop tee-supplicant
     stop miteelog
 
-#on property:twrp.modules.loaded=true
-#    start haptic_hal
+on property:twrp.modules.loaded=true
+    start haptic_hal
 
 on boot
     start health-hal-2-1
+    start mifs_hal
     start overrideprops
-    start mifs_support
     setprop sys.usb.config adb
-    
