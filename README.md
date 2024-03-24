@@ -1,6 +1,6 @@
-# TWRP device tree for REDMI K60 ULTRA
+# TWRP device tree for Redmi K60 Ultra
+Redmi K60 Ultra (codenamed _"corot"_) 
 ![corot](https://i02.appmifile.com/329_operator_sg/14/08/2023/3fcfdc0e83081349795e70056be19e35.png)
-REDMI K60 ULTRA (codenamed _"corot"_)
 ## Device specifications
 
 Basic   | Spec Sheet
@@ -21,8 +21,8 @@ Problems:
 Works:
 - [X] ADB
 - [X] Display
-- [X] Touch
-- [X] MTP
+- [X] Touch 
+- [X] Fasbootd
 - [X] USB OTG
 
 ## Donate me

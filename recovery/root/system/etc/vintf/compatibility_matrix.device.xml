@@ -1,38 +1,79 @@
 <!--
     Input:
-        device_framework_matrix.xml
-        nfc_compatibility_matrix.xml
-        vendor.xiaomi.sensor.citsensorservice@2.0_compatibility_matrix.xml
-        vendor.xiaomi.sensor.citsensorservice@1.1_compatibility_matrix.xml
-        vendor.xiaomi.sensor.communicate@1.0_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        capacitance_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        fod_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        compatibility_matrix_displayfeature.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
-        vendor.xiaomi.cit.wifi@1.0_compatibility_matrix.xml
-        vendor_framework_compatibility_matrix.xml
+        device/mediatek/system/common/device_framework_matrix.xml
+        vendor/xiaomi/proprietary/cameraopt_release/config/device_framework_compatibility_matrix/quickcamera/quickcamera_compatibility_matrix.xml
+        vendor/xiaomi/proprietary/misys/aidl/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/nfc/nfc_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/sensor_tools/vendor.xiaomi.sensor.citsensorservice@2.0_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/sensor_tools/vendor.xiaomi.sensor.citsensorservice@1.1_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/sensor_tools/vendor.xiaomi.sensor.citsensorservice.aidl_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/sensor_tools/vendor.xiaomi.sensor.communicate@1.0_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/miperf/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/mimd/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/fingerprint/capacitance_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/fingerprint/fod_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/miface/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/touch/vendor_framework_compatibility_matrix.xml
+        vendor/xiaomi/proprietary/display/common/interfaces/aidl/vendor_framework_compatibility_matrix.xml
+        vendor/xiaomi/proprietary/display/common/interfaces/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/connectivity_tools/vendor.xiaomi.cit.wifi@1.0_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/bgservice/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/memory/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/temp_fix_bb/interfaces/vintf/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/temp_fix_bb/misys/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/temp_fix_bb/NetworkBoost/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/temp_fix_bb/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/micharge/vendor_framework_compatibility_matrix.xml
+        vendor/xiaomi/proprietary/misys/vendor_framework_compatibility_matrix.xml
 -->
-<compatibility-matrix version="4.0" type="framework">
+<compatibility-matrix version="7.0" type="framework">
+    <hal format="aidl" optional="true">
+        <name>android.hardware.biometrics.face</name>
+        <version>2</version>
+        <interface>
+            <name>IFace</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.biometrics.fingerprint</name>
+        <version>3</version>
+        <interface>
+            <name>IFingerprint</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.bluetooth</name>
+        <interface>
+            <name>IBluetoothHci</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.camera.provider</name>
         <interface>
             <name>ICameraProvider</name>
             <instance>internal/0</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.media.c2</name>
+        <version>1.0-2</version>
+        <interface>
+            <name>IComponentStore</name>
+            <regex-instance>default[0-9]*</regex-instance>
+            <regex-instance>dolby[0-9]*</regex-instance>
+            <regex-instance>vendor[0-9]*_software</regex-instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.media.c2</name>
+        <version>1.0</version>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>default</instance>
+            <instance>dolby</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -84,6 +125,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.radio.config</name>
+        <version>1-2</version>
         <interface>
             <name>IRadioConfig</name>
             <instance>default</instance>
@@ -91,6 +133,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.radio.data</name>
+        <version>1-2</version>
         <interface>
             <name>IRadioData</name>
             <instance>slot1</instance>
@@ -100,7 +143,18 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>android.hardware.radio.ims</name>
+        <interface>
+            <name>IRadioIms</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+            <instance>slot3</instance>
+            <instance>slot4</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>android.hardware.radio.messaging</name>
+        <version>1-2</version>
         <interface>
             <name>IRadioMessaging</name>
             <instance>slot1</instance>
@@ -111,6 +165,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.radio.modem</name>
+        <version>1-2</version>
         <interface>
             <name>IRadioModem</name>
             <instance>imsSlot1</instance>
@@ -129,6 +184,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.radio.network</name>
+        <version>1-2</version>
         <interface>
             <name>IRadioNetwork</name>
             <instance>imsSlot1</instance>
@@ -142,7 +198,18 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>android.hardware.radio.sap</name>
+        <interface>
+            <name>ISap</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+            <instance>slot3</instance>
+            <instance>slot4</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>android.hardware.radio.sim</name>
+        <version>1-2</version>
         <interface>
             <name>IRadioSim</name>
             <instance>imsSlot1</instance>
@@ -161,6 +228,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.radio.voice</name>
+        <version>1-2</version>
         <interface>
             <name>IRadioVoice</name>
             <instance>imsSlot1</instance>
@@ -174,7 +242,23 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>android.hardware.soundtrigger3</name>
+        <interface>
+            <name>ISoundTriggerHw</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.vibrator</name>
+        <version>1-2</version>
+        <interface>
+            <name>IVibrator</name>
+            <instance>vibratorfeature</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>arm.mali.platform</name>
+        <version>1-2</version>
         <interface>
             <name>ICompression</name>
             <instance>default</instance>
@@ -212,6 +296,44 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>com.fingerprints.extension3</name>
+        <interface>
+            <name>IFingerprintNavigation</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IFingerprintSensorTest</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>com.fingerprints.extension3</name>
+        <interface>
+            <name>IFingerprintNavigation</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IFingerprintSensorTest</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.dolby.dvs</name>
+        <version>1.0</version>
+        <interface>
+            <name>IDvs</name>
+            <instance>dvs-hal-service</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.dolby.hardware.dms</name>
+        <version>2.0</version>
+        <interface>
+            <name>IDms</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.goodix.hardware.biometrics.fingerprint</name>
         <version>2.1</version>
@@ -233,12 +355,27 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.aee</name>
+        <interface>
+            <name>IAee</name>
+            <instance>AEE</instance>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.apmonitor</name>
         <version>2.0</version>
         <interface>
             <name>IApmService</name>
             <instance>apm_hidl_service</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.apmonitor</name>
+        <interface>
+            <name>IApmService</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -253,6 +390,8 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.apuware.apusys</name>
+        <version>1</version>
+        <version>2</version>
         <interface>
             <name>INeuronApusys</name>
             <instance>default</instance>
@@ -275,6 +414,13 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.apuware.utils</name>
+        <interface>
+            <name>IApuwareUtils</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.apuware.xrp</name>
         <version>1.0</version>
@@ -289,6 +435,20 @@
         <version>1.0</version>
         <interface>
             <name>IAtcid</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.atci</name>
+        <interface>
+            <name>IAtcid</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.audio</name>
+        <interface>
+            <name>IMtkAudio</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -310,6 +470,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.camera.aovservice</name>
+        <version>1-2</version>
         <interface>
             <name>IAovService</name>
             <instance>default</instance>
@@ -323,12 +484,26 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.camera.atms</name>
+        <interface>
+            <name>IATMs</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.camera.bgservice</name>
         <version>1.1</version>
         <interface>
             <name>IBGService</name>
             <instance>internal/0</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.camera.bgservice</name>
+        <interface>
+            <name>IBGService</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -347,6 +522,13 @@
             <instance>internal/0</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.camera.isphal</name>
+        <interface>
+            <name>IISPModule</name>
+            <instance>internal/1</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.camera.postproc</name>
         <version>1.0</version>
@@ -363,9 +545,23 @@
             <instance>clientapi_hal_service</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.clientapi</name>
+        <interface>
+            <name>IClientApi</name>
+            <instance>clientapi_aidl_service</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.composer_ext</name>
         <version>1.0</version>
+        <interface>
+            <name>IComposerExt</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.composer_ext</name>
         <interface>
             <name>IComposerExt</name>
             <instance>default</instance>
@@ -387,9 +583,23 @@
             <instance>dmc_hidl_service</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.dmc</name>
+        <interface>
+            <name>IDmcService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.dplanner</name>
         <version>2.0</version>
+        <interface>
+            <name>IDPlanner</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.dplanner2</name>
         <interface>
             <name>IDPlanner</name>
             <instance>default</instance>
@@ -411,6 +621,13 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.gnss</name>
+        <interface>
+            <name>IMtkGnss</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.gnss.batching</name>
         <interface>
             <name>IMtkGnssBatching</name>
@@ -425,11 +642,25 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.gpuserv</name>
+        <interface>
+            <name>IGpuService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.hdmi</name>
-        <version>1.3</version>
+        <version>1.4</version>
         <interface>
             <name>IMtkHdmiService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.hdmi_aidl</name>
+        <interface>
+            <name>IMtkHdmiService_AIDL</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -505,6 +736,34 @@
             <instance>mtk_mtklogger2mnld</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.lbs</name>
+        <interface>
+            <name>ILbs</name>
+            <instance>AgpsDebugInterface</instance>
+            <instance>AgpsInterface</instance>
+            <instance>mtk_agps2framework</instance>
+            <instance>mtk_agpsd2debugService</instance>
+            <instance>mtk_debugService2agpsd</instance>
+            <instance>mtk_debugService2mnld</instance>
+            <instance>mtk_framework2agps</instance>
+            <instance>mtk_jam2mnl</instance>
+            <instance>mtk_lbs_log_v2s</instance>
+            <instance>mtk_lppe_socket_agps</instance>
+            <instance>mtk_lppe_socket_bt</instance>
+            <instance>mtk_lppe_socket_ipaddr</instance>
+            <instance>mtk_lppe_socket_lbs</instance>
+            <instance>mtk_lppe_socket_network</instance>
+            <instance>mtk_lppe_socket_sensor</instance>
+            <instance>mtk_lppe_socket_wlan</instance>
+            <instance>mtk_meta2mnld</instance>
+            <instance>mtk_mnl2jam</instance>
+            <instance>mtk_mnld2debugService</instance>
+            <instance>mtk_mnld2mtklogger</instance>
+            <instance>mtk_mnld2nlputils</instance>
+            <instance>mtk_mtklogger2mnld</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.log</name>
         <version>1.0</version>
@@ -517,9 +776,41 @@
             <instance>ModemLogHidlServer</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.log</name>
+        <interface>
+            <name>ILog</name>
+            <instance>ATMWiFiHidlServer</instance>
+            <instance>ConnsysFWHidlServer</instance>
+            <instance>LoggerHidlServer</instance>
+            <instance>MobileLogHidlServer</instance>
+            <instance>ModemLogHidlServer</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.mbrain</name>
+        <interface>
+            <name>IMBrain</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.mbrainj</name>
+        <interface>
+            <name>IMBrainJava</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.mdmonitor</name>
         <version>1.0</version>
+        <interface>
+            <name>IMDMonitorService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.mdmonitor</name>
         <interface>
             <name>IMDMonitorService</name>
             <instance>default</instance>
@@ -534,8 +825,15 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.mmagent</name>
+        <interface>
+            <name>IMMAgent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.mmlpq</name>
-        <version>2</version>
+        <version>2-3</version>
         <interface>
             <name>IMmlpq</name>
             <instance>default</instance>
@@ -566,6 +864,13 @@
         </interface>
         <interface>
             <name>IMtkPower</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkpower</name>
+        <interface>
+            <name>IMtkPowerService</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -660,8 +965,19 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.mtkradioex.data</name>
+        <version>1-2</version>
         <interface>
             <name>IMtkRadioExData</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+            <instance>slot3</instance>
+            <instance>slot4</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex.dch</name>
+        <interface>
+            <name>IMtkRadioExDc</name>
             <instance>slot1</instance>
             <instance>slot2</instance>
             <instance>slot3</instance>
@@ -690,6 +1006,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.mtkradioex.modem</name>
+        <version>1-2</version>
         <interface>
             <name>IMtkRadioExModem</name>
             <instance>slot1</instance>
@@ -746,11 +1063,32 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.netdagent</name>
+        <interface>
+            <name>INetdagents</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.neuropilot.agent</name>
         <version>1.2</version>
         <interface>
             <name>IAgent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.neuropilot.agent</name>
+        <interface>
+            <name>IAgent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.nvram</name>
+        <interface>
+            <name>INvram</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -767,6 +1105,13 @@
         <version>1.0</version>
         <interface>
             <name>INwkOpt</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.nwk_opt_new</name>
+        <interface>
+            <name>INwkOptNew</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -796,7 +1141,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.pq_aidl</name>
-        <version>1-3</version>
+        <version>1-7</version>
         <interface>
             <name>IPictureQuality_AIDL</name>
             <instance>default</instance>
@@ -834,6 +1179,13 @@
             <instance>rcs_hal_service</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.rcs</name>
+        <interface>
+            <name>IRcs</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.thp</name>
         <version>1.0</version>
@@ -858,6 +1210,13 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.mediatek.hardware.videotelephony</name>
+        <interface>
+            <name>IVideoTelephony</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.vpu</name>
         <version>1.0</version>
@@ -867,11 +1226,11 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.mediatek.hardware.wfo</name>
+        <name>vendor.mediatek.hardware.wifi.hostapd_ext</name>
         <version>1.0</version>
         <interface>
-            <name>IWifiOffload</name>
-            <instance>wfo_hidl_service</instance>
+            <name>IHostapdVendor</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -895,22 +1254,6 @@
         <version>2.2</version>
         <interface>
             <name>ISupplicant</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.microtrust.hardware.soter</name>
-        <version>1.0</version>
-        <interface>
-            <name>ISoter</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.microtrust.hardware.thh</name>
-        <version>2.0</version>
-        <interface>
-            <name>IThhDevice</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -947,11 +1290,32 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.trustonic.tee</name>
+        <interface>
+            <name>ITee</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.trustonic.tee.tui</name>
         <version>1.0</version>
         <interface>
             <name>ITui</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.trustonic.tui</name>
+        <interface>
+            <name>ITui</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.tsa.hdcp</name>
+        <interface>
+            <name>IHDCPInterface</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -988,8 +1352,31 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>vendor.xiaomi.hardware.displayfeature</name>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayFeature</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.displayfeature_aidl</name>
+        <version>2</version>
+        <interface>
+            <name>IDisplayFeature</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>vendor.xiaomi.hardware.dtool</name>
         <version>1.0</version>
+        <interface>
+            <name>IDtool</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.dtool1</name>
         <interface>
             <name>IDtool</name>
             <instance>default</instance>
@@ -1011,9 +1398,23 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.fingerprintextension</name>
+        <interface>
+            <name>IXiaomiFingerprint</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.xiaomi.hardware.fingerprintextension</name>
         <version>1.0</version>
+        <interface>
+            <name>IXiaomiFingerprint</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.fingerprintextension</name>
         <interface>
             <name>IXiaomiFingerprint</name>
             <instance>default</instance>
@@ -1027,17 +1428,23 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.mfidoca</name>
-        <version>1.0</version>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.fx.tunnel</name>
         <interface>
-            <name>IFidoService</name>
+            <name>IMiFxTunnel</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.xiaomi.hardware.micharge</name>
         <version>1.0</version>
+        <interface>
+            <name>IMiCharge</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.micharge</name>
         <interface>
             <name>IMiCharge</name>
             <instance>default</instance>
@@ -1092,42 +1499,70 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.mlipay</name>
-        <version>1.0-1</version>
-        <interface>
-            <name>IMlipayService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.mtdservice</name>
-        <version>1.0-3</version>
-        <interface>
-            <name>IMTService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.otrpagent</name>
-        <version>2.0</version>
-        <interface>
-            <name>IOTrPAgent</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.soterservice</name>
+        <name>vendor.xiaomi.hardware.misys</name>
         <version>1.0</version>
         <interface>
-            <name>ISoter</name>
+            <name>IMiSys</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.tidaservice</name>
-        <version>1.0-2</version>
+        <name>vendor.xiaomi.hardware.misys</name>
+        <version>2.0</version>
         <interface>
-            <name>ITidaService</name>
+            <name>IMiSys</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.xiaomi.hardware.misys</name>
+        <version>3.0</version>
+        <interface>
+            <name>IMiSys</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.xiaomi.hardware.misys</name>
+        <version>4.0</version>
+        <interface>
+            <name>IMiSys</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.misys.common</name>
+        <interface>
+            <name>IMiSysImpl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.misys.core</name>
+        <interface>
+            <name>IMiSysCore</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.quickcamera</name>
+        <interface>
+            <name>IQuickCameraService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.seccam</name>
+        <interface>
+            <name>IMiSecCam</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.xiaomi.hardware.swap</name>
+        <version>1.0</version>
+        <interface>
+            <name>ISwap</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -1136,14 +1571,6 @@
         <version>1.0</version>
         <interface>
             <name>ITouchFeature</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.vsimapp</name>
-        <version>1.0</version>
-        <interface>
-            <name>IVSIMService</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -1182,6 +1609,13 @@
     <hal format="hidl" optional="true">
         <name>vendor.xiaomi.sensor.citsensorservice</name>
         <version>1.1</version>
+        <interface>
+            <name>ICitSensorService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.sensor.citsensorservice</name>
         <interface>
             <name>ICitSensorService</name>
             <instance>default</instance>

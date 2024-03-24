@@ -12,6 +12,12 @@ subsystem drm
     devname uevent_devpath
     dirname /dev/dri
 
+# MIUI ADD: Adapt_MIUIAdaptFrame
+subsystem mi_display
+    devname uevent_devpath
+    dirname /dev/mi_display
+# END Adapt_MIUIAdaptFrame
+
 subsystem input
     devname uevent_devpath
     dirname /dev/input
@@ -37,6 +43,8 @@ subsystem dma_heap
 /dev/tty                  0666   root       root
 /dev/random               0666   root       root
 /dev/urandom              0666   root       root
+# Aside from kernel threads, only prng_seeder needs access to HW RNG
+/dev/hw_random            0400   prng_seeder prng_seeder
 /dev/ashmem*              0666   root       root
 /dev/binder               0666   root       root
 /dev/hwbinder             0666   root       root
@@ -49,6 +57,11 @@ subsystem dma_heap
 
 # kms driver for drm based gpu
 /dev/dri/*                0666   root       graphics
+
+# MIUI ADD: Adapt_MIUIAdaptFrame
+# mi display feature
+/dev/mi_display/*         0666   root       graphics
+# END Adapt_MIUIAdaptFrame
 
 # these should not be world writable
 /dev/uhid                 0660   uhid       uhid
@@ -67,8 +80,8 @@ subsystem dma_heap
 # CDMA radio interface MUX
 /dev/ppp                  0660   radio      vpn
 
-/dev/kvm                  0600   system     system
-/dev/vhost-vsock          0600   system	    system
+/dev/kvm                  0666   root       root
+/dev/vhost-vsock          0666   root       root
 
 # sysfs properties
 /sys/devices/platform/trusty.*      trusty_version        0440  root   log

@@ -29,7 +29,7 @@ void vendor_load_properties()
         property_override(string("ro.product.") + prop + string("name"), "corot");
         property_override(string("ro.product.") + prop + string("device"), "corot");
         property_override(string("ro.product.") + prop + string("model"), "23078RKD5C");
-        property_override(string("ro.product.") + prop + string("marketname"), "K60U");
+        property_override(string("ro.product.") + prop + string("marketname"), "Redmi K60 Ultra");
         property_override(string("ro.product.") + prop + string("cert"), "23078RKD5C");
     }
     property_override("ro.bootimage.build.date.utc", "1676018595");
