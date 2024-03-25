@@ -44,7 +44,6 @@ on post-fs
     symlink /dev/block/platform/bootdevice/by-name/preloader_b /dev/block/by-name/preloader_ufs_b
 
     # to access F2FS sysfs on dm-<num> directly
-    mkdir /dev/sys/fs/by-name 0755 system system
     symlink /sys/fs/mifs/${dev.mnt.dev.data} /dev/sys/fs/by-name/userdata
     symlink /sys/fs/f2fs/${dev.mnt.dev.data} /dev/sys/fs/by-name/userdata
 
