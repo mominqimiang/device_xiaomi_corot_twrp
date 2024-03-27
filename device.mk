@@ -80,14 +80,12 @@ AB_OTA_POSTINSTALL_CONFIG += \
 # Additional Target Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.keymaster@4.1 \
-    android.hardware.vibrator-V1-ndk_platform \
     android.hardware.graphics.common@1.0 \
     libion \
     libxml2
 
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.graphics.common@1.0.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
